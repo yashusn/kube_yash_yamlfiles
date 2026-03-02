@@ -1,11 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-lb-service
+  name: nginx-service
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
-    app: nginx
+    app: nginxapp
   ports:
   - port: 80
     targetPort: 80
+    nodePort: 30010

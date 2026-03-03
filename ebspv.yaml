@@ -1,0 +1,11 @@
+# Defines the blueprint for dynamic EBS volume creation
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: ebs-sc
+provisioner: ebs.csi.aws.com # The CSI driver that handles the creation
+parameters:
+  type: gp3 # The specific type of AWS EBS volume (e.g., gp3)
+reclaimPolicy: Delete # What happens to the volume when the PVC is deleted
+volumeBindingMode: WaitForFirstConsumer # Defines when the storage should be created
+

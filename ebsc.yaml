@@ -1,0 +1,12 @@
+# Storage request that triggers dynamic creation
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ebs-test-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ebs-sc # Links this claim to the Storage Class defined above
+  resources:
+    requests:
+      storage: 1Gi # Requesting 1 GB of storage

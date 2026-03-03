@@ -1,0 +1,12 @@
+# Persistent Volume Claim Definition (Storage Request)
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: my-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi # Claiming 1 GB from the available PV
+

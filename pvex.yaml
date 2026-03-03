@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: my-pv
+spec:
+  capacity:
+    storage: 2Gi # The total storage size (e.g., 2 GB)
+  accessModes:
+    - ReadWriteOnce # One node can read/write
+  hostPath:
+    path: "/mnt/data" # The actual physical directory on the host
+    type: DirectoryOrCreate

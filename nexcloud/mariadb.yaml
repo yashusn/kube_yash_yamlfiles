@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: mariadb
-        image: yashusn/nextcloud:v1
+        image: mariadb:10.5
         env:
         - name: MYSQL_ROOT_PASSWORD
           value: rootpass

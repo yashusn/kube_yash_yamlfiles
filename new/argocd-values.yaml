@@ -1,0 +1,9 @@
+configs:
+  params:
+    server.insecure: true
+
+server:
+  service:
+    type: NodePort
+    nodePortHttp: 30080    # HTTP  → accessible at <node-ip>:30080
+    nodePortHttps: 30443   # HTTPS → accessible at <node-ip>:30443

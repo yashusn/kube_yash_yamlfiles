@@ -1,0 +1,1000 @@
+   82  kubectl taint nodes --all node-role.kubernetes.io/control-plane-
+   83  kubectl taint nodes --all node.cloudprovider.kubernetes.io/uninitialized-
+   84  kubectl get nodes
+   85  kubectl get nodes -A
+   86  kubectl get pods
+   87  kubectl delete nginx-pod.yaml 
+   88  kubectl delete pod nginx-pod
+   89  kubectl get pods
+   90  kubectl apply -f  nginx-pod.yaml 
+   91  kubectl get pods
+   92  kubectl describe pods nginx-pod
+   93  kubectl get nodes -o wide
+   94  kubectl get pods -A | grep cloud
+   95  kubeadm  --cloud-provider=external
+   96  kubectl taint nodes --all node.cloudprovider.kubernetes.io/uninitialized-
+   97  kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.2/manifests/calico.yaml
+   98  kubectl get pods -n kube-system
+   99  kubectl get pods
+  100  kubectl apply -f nginx-service.yaml 
+  101  kubectl get svc
+  102  kubectl delete svc  nginx-lb-service
+  103  kubectl get pods
+  104  kubectl delete pods nginx-pod
+  105  vi rs-nginx.yaml
+  106  kubectl apply -f rs-nginx.yaml
+  107  kubectl get rs
+  108  kubectl get pods
+  109  kubectl describe pods nginx-rs-jhvt6
+  110  kubectl get pods -n kube-system
+  111  kubectl describe node ip-172-31-8-82 | grep -i taint -A2
+  112  kubectl taint nodes ip-172-31-8-82 node.kubernetes.io/network-unavailable-
+  113  kubectl taint nodes ip-172-31-12-185 node.kubernetes.io/network-unavailable-
+  114  kubectl get pods
+  115  kubectl get rs
+  116  kubectl apply -f nginx-service.yaml 
+  117  kubectl get svc
+  118  vi rs-nginx.yaml 
+  119  vi nginx-service.yaml 
+  120  kubectl get pods
+  121  kubectl delete pods nginx-rs-jhvt6
+  122  kubectl get pods
+  123  kubectl get rs
+  124  kubectl get pods
+  125  kubectl get rs
+  126  kubectl taint nodes ip-172-31-12-185 node.kubernetes.io/network-unavailable-
+  127  kubectl taint nodes ip-172-31-8-82 node.kubernetes.io/network-unavailable-
+  128  kubectl get rs
+  129  kubectl get pods
+  130  kubectl delete pods --all
+  131  kubectl get pods
+  132  kubectl taint nodes ip-172-31-8-82 node.kubernetes.io/network-unavailable-
+  133  kubectl get pods
+  134  kubectl scale rs nginx-rs --replicas=0
+  135  kubectl get pods
+  136  kubectl get svc
+  137  kubectl delete rs nginx-rs
+  138  kubectl get  rs
+  139  kubectl get rs
+  140  kubectl get svc
+  141  kubectl delete svc nginx-lb-service
+  142  kubectl get pods
+  143  kubectl get nodes
+  144  clear
+  145  kubectl get nodes
+  146  vi anti-affinity-required.yaml
+  147  kubectl apply -f anti-affinity-required.yaml
+  148  kubectl get pods
+  149  kubectl get pods -n kube-system
+  150  kubectl get pods
+  151  kubectl get pods nginx-anti-affinity-644f5ff475-6xnhq
+  152  kubectl describe pods nginx-anti-affinity-644f5ff475-6xnhq
+  153  kubectl taint nodes --all node.cloudprovider.kubernetes.io/uninitialized-
+  154  clear
+  155  kubectl get pods
+  156  kubectl taint nodes --all node.kubernetes.io/network-unavailable-
+  157  kubectl get pods
+  158  clear
+  159  kubectl get pods
+  160  kubectl get pods -o wide
+  161  ls
+  162  vi anti-affinity-required.yaml 
+  163  kubectl describe pods nginx-anti-affinity-644f5ff475-rntjm
+  164  clear
+  165  kubectl get pods -o wide
+  166  kubectl get rs
+  167  kubectl delete rs nginx-anti-affinity-644f5ff475
+  168  kubectl get pods -o wide
+  169  kubectl delete pods --all
+  170  kubectl get pods -o wide
+  171  kubectl apply -f anti-affinity-required.yaml --rs=0
+  172  kubectl apply -f anti-affinity-required.yaml --relicaset=0
+  173  kubectl apply -f anti-affinity-required.yaml --replicaset=0
+  174  kubectl scale deployment nginx-anti-affinity --replicas=0
+  175  kubectl delete pods --all
+  176  kubectl get rs
+  177  kubectl delete rs nginx-anti-affinity-644f5ff475
+  178  kubectl get rs
+  179  kubectl delete rs --all
+  180  kubectl get rs
+  181  clear
+  182  kubectl get nodes -o wide
+  183  kubectl label node env disktype=ssd
+  184  kubectl label node <worker-node-name> disktype=ssd
+  185  kubectl label node ip-172-31-12-185 prod disktype=ssd
+  186  kubectl label node ip-172-31-12-185 disktype=ssd
+  187  kubectl get nodes --show-labels
+  188  vi node-selector.yaml
+  189  kubectl apply -f node-selector.yaml
+  190  kubectl get pods -owide
+  191  kubectl describe pods node-selector-pod
+  192  kubectl taint nodes all node.cloudprovider.kubernetes.io/uninitialized-
+  193  kubectl taint nodes --all node.cloudprovider.kubernetes.io/uninitialized-
+  194  kubectl taint nodes --all node.kubernetes.io/network-unavailable-
+  195  clear
+  196  kubectl get pods
+  197  kubectl get pods -owide
+  198  kubectl delete pods node-selector-pod
+  199  kubectl get pods -owide
+  200  vi node-affinity-hard.yaml
+  201  kubectl taint nodes --all node.kubernetes.io/network-unavailable-
+  202  kubectl apply -f node-affinity-hard.yaml
+  203  kubectl get pods -owide
+  204  vi node-affinity-soft.yaml
+  205  kubectl apply -f node-affinity-soft.yaml
+  206  kubectl get pods -owide
+  207  kubectl taint nodes --all node.cloudprovider.kubernetes.io/uninitialized-
+  208  kubectl taint nodes --all node.kubernetes.io/network-unavailable-
+  209  kubectl get pods -owide
+  210  kubectl taint nodes --all node.kubernetes.io/network-unavailable-
+  211  kubectl get pods -owide
+  212  kubectl delete pods --all
+  213  kubectl taint nodes --all node.cloudprovider.kubernetes.io/uninitialized-
+  214  kubectl taint nodes --all node.kubernetes.io/network-unavailable-
+  215  clear
+  216  kubectl apply -f node-affinity-hard.yaml
+  217  kubectl get pods
+  218  kubectl get pods
+  219  kubectl taint nodes --all node.kubernetes.io/network-unavailable-
+  220  kubectl get pods
+  221  kubectl get pods -owide
+  222  kubectl get nodes
+  223  kubectl taint nodes ip-172-31-12-185 environment=prod:NoSchedule
+  224  kubectl describe node ip-172-31-12-185
+  225  vi pod-witouttolerance.yaml
+  226  kubectl apply -f pod-witouttolerance.yaml 
+  227  kubectl get pods
+  228  vi tolerance.yaml
+  229  kubectl apply -f tolerance.yaml 
+  230  kubectl get pods
+  231  kubectl describe toleration-pod
+  232  kubectl describe pod toleration-pod
+  233  kubectl describe node --all | grep Taint -A 2
+  234  kubectl get nodes
+  235  kubectl describe node ip-172-31-13-69 | grep Taint -A 2
+  236  kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+  237  kubectl get nodes
+  238  kubectl get pods
+  239  kubectl delete pods --all
+  240  kubectl apply -f tolerance.yaml 
+  241  kubectl get pods
+  242  kubectl get pods -n kube-system
+  243  kubectl describe node ip-172-31-8-82
+  244  kubectl cluster-info
+  245  kubectl cluster-info dump
+  246  clear
+  247  kubectl -n kube-system get configmap kubeadm-config -o yaml
+  248  kubectl -n kube-system delete pod -l k8s-app=aws-cloud-controller-manager
+  249  kubectl describe node ip-172-31-8-82
+  250  kubectl describe node ip-172-31-8-82 | grep -A3 Network
+  251  history
+  252  kubectl get pods -o wide
+  253  kubectl get nodes -o wide
+  254  ps -ef | grep kubelet
+  255  sudo vi /var/lib/kubelet/config.yaml
+  256  ps -ef | grep kube-controller-manager
+  257  clear
+  258  ps -ef | grep kube-controller-manager
+  259  vi /etc/kubernetes/manifests/kube-controller-manager.yaml
+  260  cat /etc/kubernetes/manifests/kube-controller-manager.yaml
+  261  vi /etc/kubernetes/manifests/kube-controller-manager.yaml
+  262  kubectl get pods -n kube-system
+  263  kubectl describe node ip-172-31-8-82 | grep -A3 Network
+  264  vi /etc/kubernetes/manifests/kube-controller-manager.yaml
+  265  kubectl describe node ip-172-31-8-82 | grep -A3 Network
+  266  kubectl describe node | grep -i taint
+  267  ps -ef | grep kube-controller-manager
+  268  vi /etc/kubernetes/manifests/kube-controller-manager.yaml
+  269  ps -ef | grep kube-controller-manager
+  270  kubectl describe node ip-172-31-8-82 | grep -A3 Network
+  271  kubectl get pods -n kube-system -o wide
+  272  kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml
+  273  kubectl get pods -n kube-system -o wide
+  274  kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml
+  275  kubectl get pods -n kube-flannel -o wide
+  276  kubectl describe node ip-172-31-8-82 | grep -A3 Network
+  277  sudo systemctl restart kubelet
+  278  kubectl describe node ip-172-31-8-82 | grep -A3 Network
+  279  kubectl taint nodes ip-172-31-8-82 node.kubernetes.io/network-unavailable-
+  280  kubectl describe node ip-172-31-8-82 | grep -A3 Network
+  281  sudo systemctl restart kubelet
+  282  kubectl describe node ip-172-31-8-82 | grep -A3 Network
+  283  ls
+  284  vi aws-ccm-values.yaml 
+  285  helm upgrade aws-ccm aws/aws-cloud-controller-manager   -n kube-system   -f aws-ccm-values.yaml
+  286  helm install aws-cloud-controller-manager aws-cloud-controller-manager/aws-cloud-controller-manager   --namespace kube-system   --create-namespace   --values aws-ccm-values.yaml
+  287  NAME                         NAMESPACE
+  288  aws-cloud-controller-manager kube-system
+  289  helm list -n kube-system
+  290  helm repo add aws-cloud-controller-manager https://kubernetes.github.io/cloud-provider-aws
+  291  helm repo update
+  292  helm repo add aws-cloud-controller-manager https://kubernetes.github.io/cloud-provider-aws
+  293  helm repo update
+  294  helm upgrade aws-cloud-controller-manager   aws-cloud-controller-manager/aws-cloud-controller-manager   -n kube-system   -f aws-ccm-values.yaml
+  295  sudo systemctl restart kubelet
+  296  kubectl describe node ip-172-31-8-82 | grep -A3 Network
+  297  vi aws-ccm-values.yaml 
+  298  helm repo add aws-cloud-controller-manager https://kubernetes.github.io/cloud-provider-aws
+  299  helm upgrade aws-cloud-controller-manager   aws-cloud-controller-manager/aws-cloud-controller-manager   -n kube-system   -f aws-ccm-values.yaml
+  300  sudo systemctl restart kubelet
+  301  kubectl describe node ip-172-31-8-82 | grep -A3 Network
+  302  kubectl get pods -n kube-system -l k8s-app=cloud-controller-manager'
+  303  kubectl get pods -n kube-system -l k8s-app=cloud-controller-manager
+  304  kubectl get pods -n kube-system
+  305  kubectl get nodes
+  306  kubectl describe nodes ip-172-31-8-82
+  307  kubectl get nodes
+  308  kubectl describe nodes ip-172-31-13-69
+  309  kubectl get node ip-172-31-13-69 -o jsonpath='{.spec.providerID}'
+  310  kubectl get node ip-172-31-8-82 -o jsonpath='{.spec.providerID}'
+  311  kubectl patch node ip-172-31-8-82 -p '{"spec":{"providerID":"aws:///ap-south-1b/i-0dd56b52a578febc1"}}'
+  312  kubectl describe node ip-172-31-8-82 | grep -A 5 "Conditions"
+  313  kubectl get pods
+  314  kubectl delete pods toleration-pod
+  315  kuberctl apply -f pod-witouttolerance.yaml 
+  316  kubectl apply -f pod-witouttolerance.yaml 
+  317  kubectl get pods
+  318  kubectl get pods -owide
+  319  kubectl apply -f tolerance.yaml 
+  320  kubectl get pods -owide
+  321  kuberctl get nodes
+  322  kubectl get nodes
+  323  ls
+  324  kubectl apply -f node-selector.yaml 
+  325  kubectl get nodes
+  326  kubectl get pods -owide
+  327  kubectl patch node ip-172-31-13-69 -p '{"spec":{"providerID":"aws:///ap-south-1b/i-0dd56b52a578febc1"}}'
+  328  kubectl patch node ip-172-31-12-185 -p '{"spec":{"providerID":"aws:///ap-south-1b/i-0dd56b52a578febc1"}}'
+  329  kubectl get pods -owide
+  330  clear
+  331  kubectl get pods
+  332  kubectl delete pods --all
+  333  clear
+  334  kubectl get pods -A -o wide --watch
+  335  kubectl get nodes --show-labels
+  336  kubectl label node kubectl label node ip-172-31-12-185 disktype=ssd
+  337  kubectl get pods
+  338  clear
+  339  ls
+  340  kubectl apply -f node-selector.yaml 
+  341  kubectl get pods
+  342  kubectl label node ip-172-31-12-185 disktype=ssd
+  343  kubectl describe pods ip-172-31-12-185
+  344  kubectl describe nodes ip-172-31-12-185
+  345  kubectl delete pods --all
+  346  kubectl label node ip-172-31-12-185 disktype=ssd
+  347  kubectl describe nodes ip-172-31-12-185
+  348  history
+  349  kubectl patch node ip-172-31-12-185 -p '{"spec":{"providerID":"aws:///ap-south-1b/i-0dd56b52a578febc1"}}'
+  350  kubectl patch node ip-172-31-8-82 -p '{"spec":{"providerID":"aws:///ap-south-1b/i-0dd56b52a578febc1"}}'
+  351  kubectl patch node ip-172-31-12-185 -p '{"spec":{"providerID":"aws:///ap-south-1b/i-062d982cf3a610125"}}'
+  352  kubectl cordon ip-172-31-12-185
+  353  kubectl drain ip-172-31-12-185 --ignore-daemonsets --delete-emptydir-data
+  354  kubectl delete node ip-172-31-12-185
+  355  kubectl get nodes
+  356  sudo systemctl restart kubelet
+  357  kubectl get nodes
+  358  sudo systemctl status kubelet
+  359  sudo journalctl -u kubelet -f
+  360  kubeadm token create --print-join-command
+  361  sudo kubeadm reset
+  362  kubeadm token create --print-join-command
+  363  sudo kubeadm init --config kubeadm-config.yaml
+  364  kubectl get nodes -n kube-system
+  365  kubectl get pods -n kube-system
+  366  mkdir -p $HOME/.kube
+  367  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  368  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+  369  export KUBECONFIG=/etc/kubernetes/admin.conf
+  370  kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.28.0/manifests/calico.yaml
+  371  helm repo add aws-cloud-controller-manager https://kubernetes.github.io/cloud-provider-aw
+  372  helm repo add aws-cloud-controller-manager https://kubernetes.github.io/cloud-provider-aws
+  373  helm repo update
+  374  helm status aws-cloud-controller-manager -n kube-system
+  375  helm install aws-cloud-controller-manager aws-cloud-controller-manager/aws-cloud-controller-manager   --namespace kube-system   --create-namespace   --values aws-ccm-values.yaml
+  376  helm status aws-cloud-controller-manager -n kube-system
+  377  kubectl get pods -n kube-system
+  378  kubectl get nodes
+  379  ls
+  380  kubectl label node ip-172-31-12-185 disktype=ssd
+  381  kubectl get nodes --show-labels
+  382  kubectl apply -f node-selector.yaml
+  383  kubectl get pods -owide
+  384  kubectl patch node ip-172-31-8-82 -p '{"spec":{"providerID":"aws:///ap-south-1b/i-0dd56b52a578febc1"}}'
+  385  kubectl patch node ip-172-31-12-185 -p '{"spec":{"providerID":"aws:///ap-south-1b/i-062d982cf3a610125"}}'
+  386  kubectl patch node ip-172-31-13-69 -p '{"spec":{"providerID":"aws:///ap-south-1b/i-02a5e1ff6ff71c246"}}'
+  387  clear
+  388  kubectl get pods -owide
+  389  kubectl delete pods --all
+  390  kubectl apply -f node-selector.yaml
+  391  kubectl get pods -owide
+  392  cat node-selector.yaml 
+  393  clear
+  394  kubectl delete pods --all
+  395  clear
+  396  kubectl get nodes
+  397  kubectl label nodes ip-172-31-12-185 disktype=ssd
+  398  vi pod-with-selector.yaml
+  399  kubectl label nodes ip-172-31-13-69 disktype=hdd
+  400  kubectl get nodes --show-labels
+  401  kubectl get pods
+  402  kubectl apply -f pod-with-selector.yaml
+  403  kubectl get pods
+  404  kubectl get pods -owide
+  405  kubectl delete pods --all
+  406  vi pod-with-selector.yaml 
+  407  cat po
+  408  cat pod-with-selector.yaml 
+  409  vi pod-with-selector.yaml 
+  410  kubectl apply -f pod-with-selector.yaml
+  411  kubectl get pods -owide
+  412  cat pod-with-selector.yaml 
+  413  kubectl get pods -owide
+  414  kubectl delete pods -all
+  415  kubectl delete pods --all
+  416  clear
+  417  ls
+  418  cat node-affinity-hard.yaml
+  419  kubectl apply -f node-affinity-hard.yaml 
+  420  kubectl get nodes
+  421  kubectl get pods
+  422  kubectl get pods -owide
+  423  vi node-affinity-hard.yaml 
+  424  kubectl get pods -owide
+  425  kubectl apply -f node-affinity-hard.yaml 
+  426  kubectl apply -f node-affinity-hard.yaml
+  427  kubectl delete pods --all
+  428  kubectl apply -f node-affinity-hard.yaml
+  429  kubectl get pods -owide
+  430  cat node-affinity-hard.yaml 
+  431  kubectl delete pods --all
+  432  vi node-affinity-hard.yaml 
+  433  kubectl apply -f node-affinity-hard.yaml
+  434  kubectl get pods -owide
+  435  kubectl delete pods --all
+  436  kubectl apply -f node-affinity-hard.yaml
+  437  kubectl get pods -owide
+  438  vi node-affinity-soft.yaml 
+  439  kubectl apply -f node-affinity-soft.yaml
+  440  kubectl get pods -owide
+  441  kubectl delete pods soft-affinity-pod
+  442  vi node-affinity-soft.yaml 
+  443  kubectl apply -f node-affinity-soft.yaml
+  444  kubectl get pods -owide
+  445  ls
+  446  vi pod-witouttolerance.yaml 
+  447  kubectl apply -f pod-witouttolerance.yaml 
+  448  kubectl get pods -owide
+  449  kubectl apply -f tolerance.yaml 
+  450  kubectl get pods -owide
+  451  vi tolerance.yaml 
+  452  kubectl delete pods -all
+  453  kubectl delete pods --all
+  454  clear
+  455  kubectl get nodes
+  456  kubectl describe node ip-172-31-12-185 | grep taint
+  457  kubectl describe node ip-172-31-13-69 | grep taint
+  458  kubectl describe nodes | grep taint
+  459  ls
+  460  rm pod-witouttolerance.yaml tolerance.yaml
+  461  clear
+  462  kubectl get nodes
+  463  kubectl taint nodes ip-172-31-13-69 dedicated=special-workload:NoSchedule
+  464  kubectl describe node ip-172-31-13-69 | grep Taints
+  465  vi tolerance-pod.yaml
+  466  kubectl get pods -owide
+  467  cat tolerance-pod.yaml 
+  468  kubectl delete pods -all
+  469  kubectl delete pods --all
+  470  vi tolerance-pod.yaml 
+  471  kubectl apply -f node-affinity-hard.yaml 
+  472  kubectl get pods -owide
+  473  kubectl apply -f node-affinity-soft.yaml 
+  474  kubectl get pods -owide
+  475  ls
+  476  vi pod-with-selector.yaml 
+  477  kubectl apply -f pod-with-selector.yaml 
+  478  kubectl get pods -owide
+  479  kubectl get pods -A -o wide --watch
+  480  kubectl taint nodes ip-172-31-12-185 test-eviction=true:NoExecute
+  481  kubectl taint nodes ip-172-31-12-185 test-eviction-
+  482  kubectl get pods -A -o wide
+  483  kubectl get pods-o wide
+  484  kubectl get pods -o wide
+  485  clear
+  486  ls
+  487  kubectl get nodes | grep taint
+  488  vi tolerance-pod.yaml 
+  489  kubectl get nodes
+  490  kubectl describe node ip-172-31-13-69 | grep Taints
+  491  kubectl taint nodes <node-name> dedicated-
+  492  kubectl taint nodes ip-172-31-13-69 dedicated-
+  493  kubectl describe node ip-172-31-13-69 | grep Taints
+  494  clear
+  495  ls
+  496  vi pod-affinity-one.yaml
+  497  kubectl apply -f pod-affinity-one.yaml 
+  498  kubectl get pods
+  499  kubectl get pods -owide
+  500  vi pod-anti-affinity.yaml
+  501  kubectl apply -f pod-anti-affinity.yaml 
+  502  kubectl get pods -owide
+  503  vi pod-affinity-two.yaml
+  504  kubectl apply -f pod-affinity-two.yaml 
+  505  kubectl get pods -owide
+  506  vi pod-affinity-two.yaml 
+  507  vi pod-anti-affinity.yaml 
+  508  git clone https://github.com/yashusn/kube_yash_yamlfiles.git
+  509  ls
+  510  mv * kube_yash_yamlfiles/
+  511  clear
+  512  ls
+  513  cd kube_yash_yamlfiles/
+  514  ls
+  515  git add .
+  516  git commit -m manifestfiles
+  517  git push origin main
+  518  ls
+  519  cp aws-ccm-values.yaml root/
+  520  cp aws-ccm-values.yaml /root/
+  521  cp kubeadm-config.yaml /root/
+  522  ls
+  523  cd /
+  524  ls
+  525  cd ..
+  526  ls
+  527  pwd
+  528  cd /root/
+  529  ls
+  530  vi https://github.com/yashusn/kube_yash_yamlfiles.git
+  531  cd kube_yash_yamlfiles/
+  532  vi daemonset-test.yaml
+  533  kubectl apply -f daemonset-test.yaml 
+  534  kubectl get pods
+  535  kubectl get daemonsets
+  536  kubectl get daemonsets -n kube-system
+  537  kubectl delete pod nginx-daemonset-d75dt -n kube-system
+  538  kubectl get pods -n kube-system
+  539  kubectl delete pod kube-proxy-srwrg -n kube-system
+  540  kubectl get pods -n kube-system
+  541  kubectl delete pods --all
+  542  kubectl get pods
+  543  kubectl delete daemonset nginx-daemonset
+  544  kubectl get pods
+  545  history
+  546  git add .
+  547  git statu
+  548  git status
+  549  git commit -m daemonset
+  550  git push origin main
+  551  git pull origin main
+  552  git checkout main
+  553  git pull origin --all
+  554  git pull origin main
+  555  git config --global
+  556  ls
+  557  cat daemonset-test.yaml
+  558  cd
+  559  ls
+  560  history
+  561  cat > history
+  562  ls
+  563  history > history
+  564  cat history
+  565  history
+  566  kubectl get pods -n kube-system -w
+  567  ls
+  568  rm history
+  569  ls
+  570  clear
+  571  ls
+  572  cd kube_yash_yamlfiles/
+  573  vi host-p-pod.yaml
+  574  kubectl apply -f host-p-pod.yaml 
+  575  ls
+  576  kubectl get pods
+  577  kubectl get pods -owide
+  578  kubectl exec -it hostpath-example-pod -- /bin/bash
+  579  kubectl delete pods hostpath-example-pod
+  580  ls
+  581  clear
+  582  vi pvex.yaml
+  583  kubectl apply -f pvex.yaml 
+  584  kubectl get nodes
+  585  kubectl get pods -owide
+  586  kubectl get pvc
+  587  kubectl get pv
+  588  kubectl get pods -A
+  589  kubectl delete pv my-pv
+  590  clear
+  591  kubectl apply -f pvex.yaml 
+  592  kubectl get pv
+  593  vi pvcc.yaml
+  594  kubectl apply -f pvcc.yaml 
+  595  kubectl get pvc
+  596  kubectl get pvc -owide
+  597  kubectl apply -f podpv.yaml 
+  598  kubectl get pvc -owide
+  599  kubectl get pods -owide
+  600  kubectl delete pvc -all
+  601  kubectl get pvc -owide
+  602  kubectl delete pvc my-pvc
+  603  kubectl delete pods --all
+  604  kubectl delete pvc my-pvc
+  605  kubectl delete pv my-pvc
+  606  kubectl get pv
+  607  kubectl delete pv my-pv
+  608  clear
+  609  kubectl get pods -A
+  610  helm repo add aws-ebs-csi-driver https://kubernetes-sigs.github.io/aws-ebs-csi-driver
+  611  helm repo update
+  612  kubectl get pods -n kube-system
+  613  cd
+  614  kubectl get pods -n kube-system
+  615  helm install aws-ebs-csi-driver aws-ebs-csi-driver/aws-ebs-csi-driver   -n kube-system   --create-namespace
+  616  kubectl get pods -n kube-system
+  617  ls
+  618  cd kube_yash_yamlfiles/
+  619  vi ebspv.yaml
+  620  clear
+  621  cd kube_yash_yamlfiles/
+  622  ls
+  623  clear
+  624  ls
+  625  cd kube_yash_yamlfiles/
+  626  clear
+  627  kubectl apply -f ebspv.yaml 
+  628  kubectl get sc
+  629  vi ebsc.yaml
+  630  kubectl apply -f ebsc.yaml 
+  631  kubectl get sc -owide
+  632  kubectl get pvc -owide
+  633  vi ebsmount.yaml
+  634  kubectl apply -f ebsmount.yaml 
+  635  kubectl get pvc -owide
+  636  kubectl get sc
+  637  kubectl get pods -owide
+  638  lsblk
+  639  df -h
+  640  clear
+  641  kubectl get pv
+  642  kubectl get pvc
+  643  kubectl get sc
+  644  clear
+  645  helm repo add aws-efs-csi-driver https://kubernetes-sigs.github.io/aws-efs-csi-driver/
+  646  helm repo update
+  647  helm install aws-efs-csi-driver aws-efs-csi-driver/aws-efs-csi-driver   --namespace kube-system
+  648  kubectl get pods -n kube-system
+  649  vi storageclass.yaml
+  650  kubectl apply -f storageclass.yaml
+  651  kubectl get sc
+  652  vi efspvc.yaml
+  653  kubectl apply -f efspvc.yaml 
+  654  kubectl get pvc
+  655  kubectl get pv
+  656  vi efspod.yaml
+  657  kubectl apply -f pod.yaml
+  658  kubectl apply -f efspod.yaml
+  659  kubectl exec -it efs-test-pod -- /bin/bash
+  660  kubectl get pods
+  661  kubectl delete efs-test-pod
+  662  kubectl delete pod efs-test-pod
+  663  kubectl apply -f efspod.yaml
+  664  kubectl get pods
+  665  kubectl get pvc
+  666  kubectl describe pvc efs-pvc
+  667  kubectl delete pod -n kube-system -l app=efs-csi-controller
+  668  kubectl rollout restart deployment efs-csi-controller -n kube-system
+  669  kubectl delete pvc efs-pvc
+  670  clear
+  671  kubectl apply -f efspvc.yaml 
+  672  kubectl get pods
+  673  kubectl get pvc
+  674  kubectl delete pods efs-test-pod
+  675  kubectl get pvc
+  676  clear
+  677  kubectl get sc
+  678  kubectl apply -f efspvc.yaml 
+  679  kubectl get pvc
+  680  kubectl apply -f efspod.yaml 
+  681  kubectl get pods-owide
+  682  kubectl get pods -owide
+  683  kubectl exec -it efs-test-pod -- cat /usr/share/nginx/html/test.txt
+  684  kubectl get pods efs-test-pod
+  685  kubectl delete pods efs-test-pod
+  686  kubectl get pods efs-test-pod
+  687  kubectl apply -f efspod.yaml 
+  688  kubectl get pods efs-test-pod
+  689  kubectl exec -it efs-test-pod -- cat /usr/share/nginx/html/test.txt
+  690  clear
+  691  kubectl delete pods --all
+  692  kubectl delete pvc --all
+  693  kubectl delete pv --all
+  694  kubectl delete sc --all
+  695  kubectl get sc
+  696  ls
+  697  git add .
+  698  git commit -m ebs
+  699  git push origin main
+  700  git pull origin main --rebase
+  701  git push origin main
+  702  clear
+  703  cd kube_yash_yamlfiles/
+  704  vi ebsaio.yaml
+  705  kubectl apply -f ebsaio.yaml 
+  706  kubectl get pvc
+  707  kubectl get pv
+  708  kubectl get pods
+  709  kubectl get sc
+  710  kubectl get pods
+  711  kubectl get pvc
+  712  kubectl get pv
+  713  kubectl get pods
+  714  kubectl logs pods jenkins-deployment-575dc66f47-krrbb
+  715  kubectl logs pods jenkins-deployment-575dc66f47-krrbb -n kube-system
+  716  kubectl logs jenkins-deployment-575dc66f47-krrbb
+  717  kubectl describe pods jenkins-deployment-575dc66f47-krrbb
+  718  kubectl delete pods jenkins-deployment-575dc66f47-krrbb
+  719  kubectl delete pvc
+  720  kubectl delete pvc --all
+  721  kubectl delete pv --all
+  722  clear
+  723  vi ebsaio.yaml 
+  724  kubectl apply -f ebsaio.yaml 
+  725  kubectl get pvc
+  726  kubectl get pv
+  727  kubectl get pods
+  728  kubectl describe pods jenkins-deployment-575dc66f47-sxrns
+  729  kubectl get nodes --show-labels
+  730  vi ebsaio.yaml 
+  731  clear
+  732  kubectl apply -f ebsaio.yaml 
+  733  kubectl get pods
+  734  kubectl get pvc
+  735  kubectl get pv
+  736  kubectl get pods -owide
+  737  kubectl describe pods jenkins-deployment-679b4c66c8-d4pr5
+  738  kubectl get pods -owide
+  739  kubectl apply -f ebsaio.yaml 
+  740  kubectl get pods -owide
+  741  kubectl delete pods -all
+  742  kubectl delete pods --all
+  743  kubectl get pods -owide
+  744  clear
+  745  kubectl get pods -owide
+  746  kubectl delete pods --all
+  747  kubectl delete pv
+  748  kubectl delete pv --all
+  749  kubectl delete pods --all
+  750  kubectl delete pvc --all
+  751  clear
+  752  kubectl apply -f ebsaio.yaml 
+  753  kubectl get pods -owide
+  754  kubectl get pvc
+  755  kubectl get pv
+  756  kubectl get pods -owide
+  757  kubectl describe pods jenkins-deployment-679b4c66c8-z8mzb
+  758  kubectl get pods -owide
+  759  kubectl delete pods --all
+  760  kubectl get pods -owide
+  761  clear
+  762  kubectl get pods -owide
+  763  kubectl get pv
+  764  kubectl get pvc
+  765  kubectl delete pvc --all
+  766  kubectl delete pv --all
+  767  kubectl delete pods --all
+  768  clear
+  769  kubectl get pods
+  770  kubectl scale pods jenkins-deployment-679b4c66c8-gqzsk --replicas=0
+  771  vi ebsaio.yaml 
+  772  kubectl delete pods --all
+  773  kubectl get pods
+  774  kubectl apply -f ebsaio.yaml 
+  775  kubectl get pods
+  776  kubectl delete pv --all
+  777  kubectl delete pvc --all
+  778  clear
+  779  vi efspodanti.yaml
+  780  kubectl apply -f efspodanti.yaml 
+  781  vi efspodanti.yaml 
+  782  kubectl apply -f efspodanti.yaml 
+  783  kubectl get sc
+  784  kubectl get pv
+  785  kubectl get pvc
+  786  kubectl get pods -owide
+  787  kubectl describe pod jenkins-7446946c6f-stk68
+  788  kubectl get pods -owide
+  789  kubectl describe pod jenkins-7446946c6f-ldp9z
+  790  vi efspodanti.yaml 
+  791  kubectl apply -f efspodanti.yaml 
+  792  kubectl get pods -owide
+  793  kubectl delete pods --all
+  794  kubectl get pods -owide
+  795  kubectl describe pods jenkins-7446946c6f-g6l9t
+  796  ls
+  797  cat pod-anti-affinity.yaml
+  798  kubectl get nodes --show-lables
+  799  kubectl get nodes --show-labels
+  800  vi efspodanti.yaml 
+  801  kubectl apply -f efspodanti.yaml 
+  802  clear
+  803  kubectl get pods -owide
+  804  kubectl describe node ip-172-31-13-69
+  805  docker system prune -a
+  806  kubectl describe node ip-172-31-12-185
+  807  kubectl get pods -owide
+  808  kubectl describe pods jenkins-97b9979f9-zkw4z
+  809  kubectl label node ip-172-31-13-69 disktype-
+  810  kubectl label node ip-172-31-12-185 disktype-
+  811  kubectl get pods -owide
+  812  kubectl delete pods --all
+  813  kubectl get pods -owide
+  814  kubectl apply -f efspodanti.yaml 
+  815  kubectl get pods -owide
+  816  kubectl delete pods --all
+  817  kubectl get pods -owide
+  818  clear
+  819  kubectl get pods -owide
+  820  kubectl describe pods jenkins-7446946c6f-phdx4
+  821  kubectl get pods -owide
+  822  kubectl describe pods jenkins-97b9979f9-p4p58
+  823  # Check current directory size
+  824  du -sh * | sort -rh | head -n 10
+  825  vi efspodanti.yaml 
+  826  kubectl apply -f efspodanti.yaml 
+  827  vi efspodanti.yaml 
+  828  kubectl apply -f efspodanti.yaml 
+  829  kubectl delete pods --all
+  830  kubectl get pods -owide
+  831  kubectl logs pods jenkins-7446946c6f-c9f6r
+  832  kubectl describe pods jenkins-7446946c6f-c9f6r
+  833  kubectl get nodes
+  834  kubectl describe node ip-172-31-8-82 | grep Taint
+  835  kubectl taint nodes ip-172-31-8-82 node-role.kubernetes.io/control-plane-
+  836  kubectl describe node ip-172-31-8-82 | grep Taint
+  837  kubectl taint nodes ip-172-31-8-82 node-role.kubernetes.io/
+  838  ip-172-31-12-185   Ready    <none>          46h   v1.33.0
+  839  ip-172-31-13-69    Ready    <none>          46h   v1.33.0
+  840  ip-172-31-8-82     Ready    control-plane   46h   v1.33.0
+  841  root@ip-172-31-8-82:~/kube_yash_yamlfiles# kubectl describe node ip-172-31-8-82 | grep Taint
+  842  Taints:             node-role.kubernetes.io/control-plane:NoSchedule
+  843  root@ip-172-31-8-82:~/kube_yash_yamlfiles# kubectl taint nodes ip-172-31-8-82 node-role.kubernetes.io/control-plane-
+  844  node/ip-172-31-8-82 untainted
+  845  root@ip-172-31-8-82:~/kube_yash_yamlfiles# kubectl describe node ip-172-31-8-82 | grep Taint
+  846  Taints:             node.kubernetes.io/disk-pressure:NoSchedule
+  847  root@ip-172-31-8-82:~/kube_yash_yamlfiles# kubectl taint nodes ip-172-31-8-82 node-role.kubernetes.io/disk-pressure:NoSchedule-
+  848  kubectl describe node ip-172-31-8-82 | grep Taint
+  849  kubectl taint nodes ip-172-31-8-82 node-role.kubernetes.io/disk-pressure-
+  850  kubectl describe node ip-172-31-8-82 | grep Taint
+  851  kubectl get pods -owide
+  852  kubectl delete pods --all
+  853  kubectl rollout restart deployment jenkins
+  854  kubectl get pods -owide
+  855  kubectl describe node ip-172-31-8-82 | grep Taint
+  856  kubectl describe node ip-172-31-13-69 | grep Taint
+  857  kubectl get pods -owide
+  858  df -h
+  859  clear
+  860  kubectl delete pods --all
+  861  df -h
+  862  clear
+  863  kubectl get pods -owide
+  864  kubectl delete pods --all
+  865  kubectl get pods -owide
+  866  docker
+  867  apt install docker.io
+  868  clear
+  869  kubectl get pods -owide
+  870  kubectl logs jenkins-7f8dc5b8f5-jvvpx
+  871  chmod 777 /var/jenkins_home/copy_reference_file.log
+  872  ls
+  873  cd kube_yash_yamlfiles/
+  874  ls
+  875  clear
+  876  vi efspodanti.yaml 
+  877  kubectl apply -f efspodanti.yaml 
+  878  clearkubectl get pods
+  879  kubectl get pods
+  880  kubectl delete pods --all
+  881  kubectl rollout restart deployment jenkins
+  882  kubectl get pods -o wide
+  883  kubectl get deployment jenkins
+  884  kubectl scale deployment jenkins --replicas=2
+  885  kubectl get pods -o wide
+  886  kubectl delete pod jenkins-749bf69999-krkjq
+  887  kubectl get pods -o wide
+  888  kubectl describe pods jenkins-578d65d6f6-p4kch
+  889  jenkins-578d65d6f6-p4kch
+  890  sudo apt install nfs-common -y
+  891  sudo mkdir /mnt/efs
+  892  sudo mount -t nfs4 fs-07b9511bc6150ec47.efs.ap-south-1.amazonaws.com:/ /mnt/efs
+  893  kubectl get pods -o wide
+  894  kubectl delete pod jenkins-749bf69999-p4kch
+  895  kubectl get pods -o wide
+  896  kubectl delete pods jenkins-578d65d6f6-p4kch
+  897  kubectl descibe pods jenkins-749bf69999-hlv8h
+  898  kubectl describe pods jenkins-749bf69999-hlv8h
+  899  kubectl get pods -owide
+  900  kubectl delete pods --all
+  901  kubectl get pods -owide
+  902  kubectl get pvc
+  903  kubectl get pv
+  904  kubectl get pods -owide
+  905  kubectl exec -it jenkins-578d65d6f6-tbqcp -- bash
+  906  kubectl exec -it jenkins-578d65d6f6-zxphht -- cat /var/jenkins_home/test.txt
+  907  kubectl get pods -owide
+  908  kubectl exec -it jenkins-578d65d6f6-zxpht -- cat /var/jenkins_home/test.txt
+  909  kubectl get pods -owide
+  910  clear
+  911  ls
+  912  git clone https://github.com/yashusn/awesome-compose.git
+  913  ls
+  914  cd awesome-compose/
+  915  ls
+  916  cd nextcloud-redis-mariadb/
+  917  ls
+  918  docker compose up -d
+  919  sudo apt update
+  920  sudo apt install ca-certificates curl gnupg
+  921  sudo install -m 0755 -d /etc/apt/keyrings
+  922  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+  923  sudo chmod a+r /etc/apt/keyrings/docker.gpg
+  924  docker --version
+  925  sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+  926  docker --version
+  927  clear
+  928  ls
+  929  docker compose up -d
+  930  docker login
+  931  docker image
+  932  clear
+  933  docker image
+  934  exit
+  935  clear
+  936  cd awesome-compose/nextcloud-redis-mariadb/
+  937  docker images
+  938  docker ps
+  939  docker login
+  940  docker tag mariadb:10.5 nextcloud:dockerimage
+  941  docker logout
+  942  docker login -u yashodha.natraj@gmail.com
+  943  docker push nextcloud:dockerimage
+  944  docker push yashusn/nextcloud:v1
+  945  docker push yashusn/nextcloud:tagname
+  946  docker push yashusn/nextcloud
+  947  docker tag mariadb:10.5 yashusn/nextcloud:v1
+  948  docker push yashusn/nextcloud:v1
+  949  docker tag nextcloud:apache yashusn/nextcloud:apache
+  950  docker tag push yashusn/nextcloud:apache
+  951  docker tag push yashusn/nextcloud:v2
+  952  docker push yashusn/nextcloud:apache
+  953  docker tag redis:alpine yashusn/nextcloud:redis
+  954  docker push yashusn/nextcloud:redis
+  955  clear
+  956  docker logout
+  957  docker ps $(docker ps -q)
+  958  docker ps ${docker ps -q}
+  959  docker rm -f ${docker ps -q}
+  960  docker rm -f $(docker ps -q)
+  961  docker rmi -f $(docker images -q)
+  962  clear
+  963  docker images
+  964  docker ps
+  965  ls
+  966  cd ..
+  967  cd ../kube_yash_yamlfiles/
+  968  clear
+  969  ls
+  970  mkdir nexcloud
+  971  cd nextcloud
+  972  cd  nexcloud/
+  973  clear
+  974  ls
+  975  touch mariadb.yaml
+  976  vi mariadb.yaml 
+  977  vi redis.yaml
+  978  vi nextcloud.yaml
+  979  vi mariadb.yaml 
+  980  vi redis.yaml 
+  981  kubectl apply -f mariadb.yaml
+  982  kubectl get svc
+  983  kubectl get pods
+  984  kubectl get pods-owide
+  985  kubectl get pods -owide
+  986  kubectl apply -f 
+  987  kubectl apply -f .
+  988  kubectl get pods -owide
+  989  kubectl apply -f .
+  990  kubectl get pods -owide
+  991  kubectl get svc
+  992  kubectl get pods -owide
+  993  kubectl get svc
+  994  ls
+  995  ls -ler
+  996  ls -lrt
+  997  vi nextcloud.yaml 
+  998  kubectl get svc
+  999  kubectl apply -f .
+ 1000  kubectl get pods -owide
+ 1001  kubectl get svc
+ 1002  vi mariadb.yaml 
+ 1003  clear
+ 1004  ls
+ 1005  cd kube_yash_yamlfiles/
+ 1006  cd ..
+ 1007  ls
+ 1008  cd awesome-compose/
+ 1009  ls
+ 1010  cd nextcloud-redis-mariadb
+ 1011  ls
+ 1012  docker compose up -d
+ 1013  docker ps
+ 1014  docker compose down
+ 1015  kubectl delete svc
+ 1016  kubectl delete svc --all
+ 1017  kubectl pods svc --all
+ 1018  kubectl delete pods --all
+ 1019  kubectl get pods
+ 1020  kubectl scale pods --replicas=0
+ 1021  kubectl scale pods mariadb-5c849bd948-zjk2c --replicas=0
+ 1022  kubectl get svc
+ 1023  kubectl get pods
+ 1024  kubectl get svx
+ 1025  kubectl get svc
+ 1026  ls
+ 1027  clear
+ 1028  route -n or sudo route -n
+ 1029  apt install net-tools
+ 1030  route -n
+ 1031  ip config
+ 1032  ifconfig
+ 1033  cat /etc/hosts
+ 1034  cat /etc/resolv.conf
+ 1035  kubectl get all
+ 1036  kubectl get svc
+ 1037  kubectl get pods
+ 1038  cd kube_yash_yamlfiles/
+ 1039  ls
+ 1040  cd nexcloud/
+ 1041  ls
+ 1042  kubectl apply -f .
+ 1043  kubectl get svc
+ 1044  kubectl get pods
+ 1045  kubectl get svc
+ 1046  kubectl get pods
+ 1047  kubectl describe pod mariadb-5c849bd948-zjk2c
+ 1048  ls
+ 1049  vi mariadb.yaml 
+ 1050  kubectl apply -f .
+ 1051  cd
+ 1052  ls
+ 1053  cd awesome-compose/
+ 1054  ls
+ 1055  cd nginx-flask-mysql/
+ 1056  docker compose up
+ 1057  docker images
+ 1058  docker ps
+ 1059  cd
+ 1060  cd kube_yash_yamlfiles/
+ 1061  ls
+ 1062  cd nexcloud/
+ 1063  ls
+ 1064  kubectl delete svc --all
+ 1065  kubectl delete pods --all
+ 1066  kubectl get pods --all
+ 1067  kubectl get pods
+ 1068  kubectl scale pods mariadb-85f685cbdf-2vssq --replicas=0
+ 1069  kubectl scale pods mariadb-85f685cbdf-2vssq --replicas-0
+ 1070  kubectl scale pods mariadb-85f685cbdf-2vssq -replicas--0
+ 1071  kubectl scale pods nextcloud-65cc755f59-5rnzz --replicas=0
+ 1072  cd
+ 1073  docker images
+ 1074  docker rm -f $(docker ps -qa)
+ 1075  docker rmi -f --all
+ 1076  docker images -q
+ 1077  docker rmi $(docker images -q)
+ 1078  docker images
+ 1079  docker system prune all
+ 1080  docker system prune --all
+ 1081  history > history
